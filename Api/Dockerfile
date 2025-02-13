@@ -1,4 +1,3 @@
-# Use the official Python base image
 FROM python:3.12
 
 # Set the working directory
@@ -10,8 +9,13 @@ COPY Api/requirements.txt .
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN mkdir -p Api/app/generatedCode
+
+RUN python -m grpc_tools.protoc -I Protos --python_out=Api/app/generatedCode --pyi_out=Api/app/generatedCode --grpc_python_out=Api/app/generatedCode Protos/TestService.proto
+
 # Copy the application code into the container
 COPY Api/app/ ./app
+
 
 # Expose the port the application will run on
 EXPOSE 8000

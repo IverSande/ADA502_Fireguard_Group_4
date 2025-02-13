@@ -1,4 +1,3 @@
-
 services: 
   api:
     container_name: "api-service"
@@ -6,3 +5,11 @@ services:
       - "8000:8000"
     build: 
       dockerfile: Api/Dockerfile
+    volumes: 
+      - type: bind
+        source: Api/app/generatedCode
+        target: /app/app/generatedCode
+  business: 
+    container_name: "business-service"
+    build:
+      dockerfile: Business/Dockerfile

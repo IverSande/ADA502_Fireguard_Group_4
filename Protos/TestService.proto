@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+//A mock test service to show you the ropes Mr. Rovik
+service TestService {
+    rpc SendData (DataRequest) returns (DataResponse) {}
+}
+
+message DataRequest {
+    //The id of the data requested
+    string data_id = 1;
+}
+
+message DataResponse {
+    //The temperature assosiated with the requested id
+    string temperature = 1;
+}

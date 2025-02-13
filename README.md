@@ -9,3 +9,7 @@ This project runs pythons Fast Api to serve api requests
 # A business logic project
 # A Database project
 
+
+# Quick start
+run this command in root to create generated code for Api (need the grpc packages for python to run) <br>
+python -m grpc_tools.protoc -I Protos --python_out=Api/app/generatedCode --pyi_out=Api/app/generatedCode --grpc_python_out=Api/app/generatedCode Protos/TestService.proto

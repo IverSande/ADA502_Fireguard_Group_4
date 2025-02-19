@@ -8,6 +8,8 @@ This project runs pythons Fast Api to serve api requests
 # An auth project
 # A business logic project
 # A Database project
+<img width="772" alt="image" src="https://github.com/user-attachments/assets/9e81b259-ca86-4a1d-853f-7f85bde95520" /><br>
+
 
 
 # Quick start

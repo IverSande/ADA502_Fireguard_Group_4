@@ -12,6 +12,10 @@ This project runs pythons Fast Api to serve api requests
 The basic structure for the DB, will probably be extended in the future <br>
 <img width="772" alt="image" src="https://github.com/user-attachments/assets/9e81b259-ca86-4a1d-853f-7f85bde95520" /><br>
 
+Flow for creating a userevent
+![image](https://github.com/user-attachments/assets/b508cd73-a565-4a31-b54d-7b6d8ba8005e)
+
+
 
 
 # Quick start

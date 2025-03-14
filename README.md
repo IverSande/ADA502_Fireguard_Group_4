@@ -23,5 +23,12 @@ Flow for sending events on datapoll
 
 
 # Quick start
-run this command in root to create generated code for Api (need the grpc packages for python to run) <br>
-python -m grpc_tools.protoc -I Protos --python_out=Api/app/generatedCode --pyi_out=Api/app/generatedCode --grpc_python_out=Api/app/generatedCode Protos/TestService.proto
+
+To get started <br>
+
+Run the docker compose for the database <br>
+Run each of the dotnet projects with https <br>
+
+The database project seeds the database with some mockdata <br>
+
+To test go to https://localhost:7028/api/firerisk/{id} (the seeder seeds 4 values so 1-4 should give data back) <br>

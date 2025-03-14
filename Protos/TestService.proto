@@ -1,4 +1,5 @@
 syntax = "proto3";
+option csharp_namespace = "TestServiceClient";
 
 //A mock test service to show you the ropes Mr. Rovik
 service TestService {

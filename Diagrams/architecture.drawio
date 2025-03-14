@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.0.15">
+  <diagram name="Page-1" id="Mr7gMv4Ux3hCuQHcTW0E">
+    <mxGraphModel dx="842" dy="523" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-15" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="220" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-17" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="260" as="sourcePoint" />
+            <mxPoint x="250" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-20" value="Subscribes to Bergen (or more specific)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="230" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-21" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" target="bF2TkQIj6Dy4iDc25SKF-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="260" as="sourcePoint" />
+            <mxPoint x="440" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-22" value="Business layer sends creation request for UserEvent and/or event if location does not exist&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="414" y="220" width="136" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-23" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" target="bF2TkQIj6Dy4iDc25SKF-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="260" as="sourcePoint" />
+            <mxPoint x="630" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-24" value="DB project handles creation" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-27" value="Backgroundservice polling weatherapi for data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="105" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-30" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" target="bF2TkQIj6Dy4iDc25SKF-31">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="225" y="480" as="sourcePoint" />
+            <mxPoint x="280" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-31" value="Changes in any stored locations?" style="html=1;whiteSpace=wrap;aspect=fixed;shape=isoRectangle;" vertex="1" parent="1">
+          <mxGeometry x="280" y="430.5" width="165" height="99" as="geometry" />
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-32" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="364" y="430.5" as="sourcePoint" />
+            <mxPoint x="490" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-33" value="If yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="389" y="398" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-34" value="Event service send notification to all subscribed users" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="383" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-35" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" target="bF2TkQIj6Dy4iDc25SKF-36">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="364" y="529.5" as="sourcePoint" />
+            <mxPoint x="480" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-36" value="Nothing happens" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bF2TkQIj6Dy4iDc25SKF-38" value="If no" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="385" y="529.5" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

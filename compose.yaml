@@ -1,15 +1,30 @@
 services: 
-  api:
-    container_name: "api-service"
+  #api:
+  #  container_name: "api-service"
+  #  ports: 
+  #    - "8000:8000"
+  #  build: 
+  #    dockerfile: Api/Dockerfile
+  #  volumes: 
+  #    - type: bind
+  #      source: Api/app/generatedCode
+  #      target: /app/app/generatedCode
+  #business: 
+  #  container_name: "business-service"
+  #  build:
+  #    dockerfile: Business/Dockerfile
+  #database: 
+  #  container_name: "database-service"
+  #  build: 
+  #    dockerfile: Database/Database/Dockerfile
+  #  environment:
+  #    - APP_UID=1000
+  db:
+    container_name: "psql-db"
+    image: postgres
+    restart: always
     ports: 
-      - "8000:8000"
-    build: 
-      dockerfile: Api/Dockerfile
-    volumes: 
-      - type: bind
-        source: Api/app/generatedCode
-        target: /app/app/generatedCode
-  business: 
-    container_name: "business-service"
-    build:
-      dockerfile: Business/Dockerfile
+      - "5432:5432"
+    environment:
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=devpass

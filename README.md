@@ -4,10 +4,17 @@
 ![image](https://github.com/user-attachments/assets/42c0afe2-7434-40c5-97c0-7dc7eaeeb512)<br>
 This project is comprised of 4 primary microservices, 
 # An api project
-This project runs pythons Fast Api to serve api requests
+This project is an Asp Dot Net Core project running on Dotnet 9. <br>
+The primary consern of this project is to receive api calls and route them to where they will get processed <br> 
+The routing of data is through GRPC and this service will primarily send data and receive answers and not receive requests
 # An auth project
+TODO
 # A business logic project
+TODO
 # A Database project
+This project is an Asp Dot Net Core project running oon Dotnet 9. <br>
+The project is primarily to manage the postgres database and receive calls and return data.
+The project also contains some logic to setup local testing with seeding of the database
 
 The basic structure for the DB, will probably be extended in the future <br>
 <img width="772" alt="image" src="https://github.com/user-attachments/assets/9e81b259-ca86-4a1d-853f-7f85bde95520" /><br>

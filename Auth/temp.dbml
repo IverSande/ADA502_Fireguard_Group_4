@@ -1,0 +1,32 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table Event {
+  id integer [primary key]
+  location string
+  created_at timestamp 
+  user_id integer
+}
+
+Table UserEvent {
+  id integer [primary key]
+  event_id integer [not null]
+  user_id integer [not null]
+}
+
+Table Users {
+  id integer [primary key]
+  username varchar
+  created_at timestamp
+  password varchar 
+}
+
+Table WeatherData {
+  id integer [primary key]
+  data nvarchar(max)
+}
+
+
+
+Ref: Users.id < UserEvent.user_id
+Ref: Event.id < UserEvent.event_id

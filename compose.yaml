@@ -1,24 +1,28 @@
+name: Fireguard
 services: 
-  #api:
-  #  container_name: "api-service"
-  #  ports: 
-  #    - "8000:8000"
-  #  build: 
-  #    dockerfile: Api/Dockerfile
-  #  volumes: 
-  #    - type: bind
-  #      source: Api/app/generatedCode
-  #      target: /app/app/generatedCode
-  #business: 
-  #  container_name: "business-service"
-  #  build:
-  #    dockerfile: Business/Dockerfile
-  #database: 
-  #  container_name: "database-service"
-  #  build: 
-  #    dockerfile: Database/Database/Dockerfile
-  #  environment:
-  #    - APP_UID=1000
+  api:
+    container_name: "api-service"
+    ports: 
+      - "8080:8080"
+      - "5272:5272"
+    build: 
+      dockerfile: Api/Api/Api/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      #;https://+:5272
+  database: 
+    container_name: "database-service"
+    build: 
+      context: . 
+      dockerfile: Database/Database/Dockerfile
+    environment:
+      - ConnectionStrings__Psql=${PSQL_CONNECTION_STRING}
+      - ASPNETCORE_URLS=http://+:5000
+      #;https://+:5001
+    depends_on:
+      db:
+        condition: service_started
   db:
     container_name: "psql-db"
     image: postgres

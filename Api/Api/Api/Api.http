@@ -1,6 +1,6 @@
 @Api_HostAddress = http://localhost:5272
 
-GET {{Api_HostAddress}}/firerisk/
+GET {{Api_HostAddress}}/firerisk/1
 Accept: application/json
 
 ###

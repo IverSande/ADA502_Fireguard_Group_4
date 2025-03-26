@@ -81,7 +81,7 @@ def coordinates_endpoint(location: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-
+#test
 @app.get("/average-ttf/{location}")
 def average_ttf_endpoint(location: str):
     """

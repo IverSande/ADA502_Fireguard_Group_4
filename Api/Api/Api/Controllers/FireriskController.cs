@@ -13,7 +13,7 @@ public class FireriskController : Controller
     [HttpGet("{id}", Name = nameof(GetAccount))]
     public async Task<IActionResult> GetAccount(string id)
     {
-        using var channel = GrpcChannel.ForAddress("https://host.docker.internal:5001");
+        using var channel = GrpcChannel.ForAddress("https://localhost:5001");
         var client = new TestService.TestServiceClient(channel);
         var request = new DataRequest() { DataId = id };
 

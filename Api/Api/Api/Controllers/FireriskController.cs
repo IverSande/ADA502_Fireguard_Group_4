@@ -8,16 +8,19 @@ namespace Api.Controllers;
 [Route("api/firerisk")]
 public class FireriskController : Controller
 {
-    //private TestService.TestServiceClient _testServiceClient;
+    private readonly TestService.TestServiceClient _testServiceClient;
+
+    public FireriskController(TestService.TestServiceClient testServiceClient)
+    {
+            _testServiceClient = testServiceClient;
+    }
     
     [HttpGet("{id}", Name = nameof(GetAccount))]
     public async Task<IActionResult> GetAccount(string id)
     {
-        using var channel = GrpcChannel.ForAddress("https://localhost:5001");
-        var client = new TestService.TestServiceClient(channel);
         var request = new DataRequest() { DataId = id };
 
-        var response = await client.SendDataAsync(request);
+        var response = await _testServiceClient.SendDataAsync(request);
         
         return Ok(response);
     }

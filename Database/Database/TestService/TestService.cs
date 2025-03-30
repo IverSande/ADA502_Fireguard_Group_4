@@ -14,7 +14,7 @@ public class TestService : TestServiceClient.TestService.TestServiceBase
     public override async Task<DataResponse> SendData(DataRequest request, ServerCallContext context)
     {
         var temp = _dbContext.TestDataTable.FirstOrDefault(c => c.Id == long.Parse(request.DataId));
-        var response = new DataResponse() {Temperature = temp?.Temperature};
+        var response = new DataResponse() {Temperature = temp?.Temperature ?? throw new KeyNotFoundException()};
         await Task.Delay(100);
         return response;
     }

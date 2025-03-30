@@ -28,6 +28,6 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-app.MapGrpcService<TestService>().RequireHost("localhost:5001");
+app.MapGrpcService<TestService>().AllowAnonymous();
 
 app.Run();

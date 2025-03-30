@@ -17,10 +17,13 @@ services:
 
   database: 
     container_name: "database-service"
+    ports:
+      - "5001:5001"
     build: 
       context: . 
       dockerfile: Database/Database/Dockerfile
     environment:
+      - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__Psql=${PSQL_CONNECTION_STRING}
       - ASPNETCORE_URLS=http://+:5000;https://+:5001
       - ASPNETCORE_Kestrel__Certificates__Default__Password=secret

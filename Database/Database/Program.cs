@@ -28,6 +28,6 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-app.MapGrpcService<TestService>();
+app.MapGrpcService<TestService>().AllowAnonymous();
 
 app.Run();

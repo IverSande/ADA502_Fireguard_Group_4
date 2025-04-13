@@ -10,7 +10,7 @@ The routing of data is through GRPC and this service will primarily send data an
 # An auth project
 TODO
 # A business logic project
-TODO
+This is a python project running with fastApi and is responsible for the business logic of the project
 # A Database project
 This project is an Asp Dot Net Core project running oon Dotnet 9. <br>
 The project is primarily to manage the postgres database and receive calls and return data.
@@ -26,6 +26,11 @@ Flow for sending events on datapoll
 ![image](https://github.com/user-attachments/assets/bd051f39-c079-48da-a6de-ddca196d8f7a) <br>
 
 
+# In the pipeline
+Rabbit MQ will be used as a message broker to send messages from the api project that will be picked up directly from the database service without them <br>
+needing to be coupled or know of eachother, just have a contract that they use to parse the data from the queue
+
+
 
 
 
@@ -33,9 +38,10 @@ Flow for sending events on datapoll
 
 To get started <br>
 
-Run the docker compose for the database <br>
-Run each of the dotnet projects with https <br>
+Generate the devcert using the devcert script, this is to utilize https locally (if you dont have any other localhost devcerts on your machine it needs to run a couple of times or you can change the array pointing in the script) <br>
+Move the Cert into the folder specified in the docker compose <br>
+Run the docker compose, this will spin up all services and a full end to end test can be done <br>
 
 The database project seeds the database with some mockdata <br>
 
-To test go to https://localhost:7028/api/firerisk/{id} (the seeder seeds 4 values so 1-4 should give data back) <br>
+To test go to https://localhost:5272/api/firerisk/{id} (the seeder seeds 4 values so 1-4 should give data back) <br>

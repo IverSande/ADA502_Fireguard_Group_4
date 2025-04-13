@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 import datetime
-from Coordinates import getCoordinates
-from Formatting import get_color 
+from Services.Coordinates import getCoordinates
+from Services.Formatting import get_color 
 import pandas as pd
 from frcm.frcapi import METFireRiskAPI
 import traceback

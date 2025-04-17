@@ -1,5 +1,7 @@
 using Api.Controllers;
+using Api.Services;
 using Grpc.Net.Client;
+using RabbitMQ.Client;
 using TestServiceClient;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,10 @@ builder.Services.AddControllers();
 var dbServiceUrl = builder.Configuration["DatabaseService:Url"] ?? 
                 Environment.GetEnvironmentVariable("DATABASE_SERVICE_URL") ?? 
                 "https://database:5001";
+
+var rabbitConnectionString = builder.Configuration.GetConnectionString("rabbit");
+
+builder.Services.AddSingleton<IQueueService>(new QueueService(rabbitConnectionString));
 
 builder.Services
     .AddGrpcClient<TestService.TestServiceClient>(o =>

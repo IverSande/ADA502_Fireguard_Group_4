@@ -1,0 +1,68 @@
+syntax = "proto3";
+option csharp_namespace = "UserServiceClient";
+
+service DBUserService {
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+  rpc GetUser (GetUserRequest) returns (GetUserResponse) {}
+  rpc GetUserEvent (GetUserEventRequest) returns (GetUserEventResponse) {}
+  rpc GetEvent (GetEventRequest) returns (GetEventResponse) {}
+}
+
+message CreateUserRequest {
+  //Name of the user
+  string username = 1;
+}
+
+message CreateUserResponse {
+  //If the user is created   
+  bool created = 1;
+}
+
+message GetUserRequest {
+  int32 user_id = 1;
+}
+
+message GetUserResponse {
+  User user = 1;
+}
+
+message GetUserEventRequest {
+  int32 user_event_id = 1;
+}
+
+message GetUserEventResponse {
+  int32 id = 1;
+  UserEvent user_event = 2;
+}
+
+message GetEventRequest {
+  int32 id = 1;
+}
+
+message GetEventResponse {
+  Event event = 1;
+}
+
+message UserEvent {
+  int32 id = 1;
+  User user = 2;
+  Event event = 3;
+}
+message Event {
+  int32 id = 1;
+  string location = 2;
+}
+message User {
+  int32 user_id = 1;
+  string username = 2;
+}
+
+
+
+
+
+
+
+
+
+

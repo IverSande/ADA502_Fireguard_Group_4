@@ -19,8 +19,8 @@ public class DatabaseSeeder
         dbContext.TestDataTable.Add(new TestData() { Temperature = "87" });
         dbContext.TestDataTable.Add(new TestData() { Temperature = "-234" });
 
-        dbContext.UserDataTable.Add(new User { Username = "Test User" });
-        dbContext.UserDataTable.Add(new User { Username = "Andreas Rovik" });
+        dbContext.UserDataTable.Add(new User { Username = "Test User", Password = "123456" });
+        dbContext.UserDataTable.Add(new User { Username = "Andreas Rovik", Password = "AR123"});
 
         dbContext.EventDataTable.Add(new Event { EventLocation = "Bergen" });
         dbContext.EventDataTable.Add(new Event { EventLocation = "Oslo" });

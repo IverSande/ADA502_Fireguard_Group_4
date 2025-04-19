@@ -9,6 +9,7 @@
     <ItemGroup>
         <Protobuf Include="..\..\Protos\TestService.proto" GrpcServices="Server" />
         <Protobuf Include="..\..\Protos\DBUserService.proto" GrpcServices="Server" />
+        <Protobuf Include="..\..\Protos\AuthenticationService.proto" GrpcServices="Server" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Grpc.AspNetCore" Version="2.70.0" />
@@ -31,11 +32,6 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
-    </ItemGroup>
-    <ItemGroup>
-      <Content Include="..\..\Protos\DBUserService.proto">
-        <Link>Protos\DBUserService.proto</Link>
-      </Content>
     </ItemGroup>
 
 </Project>

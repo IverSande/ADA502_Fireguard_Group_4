@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Json;
 using Database.Entities;
 using Microsoft.EntityFrameworkCore;
 using RabbitMQ.Client;
@@ -14,12 +15,13 @@ public class Worker : BackgroundService
     private Task<IConnection> _connection;
     private IChannel _channel;
     private string rabbitMqUri = "amqp://guest:guest@rabbit:5672";
-//    private readonly ApplicationDbContext _dbContext;
+    private readonly IServiceScopeFactory _scopeFactory;
+    
 
-    public Worker(ILogger<Worker> logger)//, ApplicationDbContext dbContext)
+    public Worker(ILogger<Worker> logger, IServiceScopeFactory scopeFactory)
     {
         _logger = logger;
-        //_dbContext = dbContext;
+        _scopeFactory = scopeFactory;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -77,12 +79,10 @@ public class Worker : BackgroundService
 
                 var newValue = typeQueueMessage switch
                 {
-                    "event" => new Event(),
+                    "event" => CreateEventForUser(bodyDecoded, stoppingToken),
                     _ => throw new NotImplementedException()
                 };
                 
-                //_dbContext.Add(newValue);
-
             }
             
             _logger.LogInformation(bodyDecoded);
@@ -91,6 +91,36 @@ public class Worker : BackgroundService
 
         await _channel.DisposeAsync();
         
-        await Task.Delay(1000, stoppingToken);
     }
+
+    private async Task CreateEventForUser(string body, CancellationToken stoppingToken)
+    {
+        using (var scope = _scopeFactory.CreateScope())
+        {
+
+            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var eventAndUser = JsonSerializer.Deserialize<EventAndUser>(body);
+
+            var newEvent = new Event
+            {
+                EventLocation = eventAndUser.SubscriptionLocation,
+            };
+            dbContext.EventDataTable.Add(newEvent);
+
+            await dbContext.SaveChangesAsync(stoppingToken);
+
+            dbContext.UserEventDataTable.Add(new UserEvent
+            {
+                EventId = newEvent.Id,
+                UserId = eventAndUser.UserId
+            });
+        }
+    }
+    
+}
+
+public class EventAndUser
+{
+    public int UserId { get; set; }
+    public string SubscriptionLocation { get; set; }
 }

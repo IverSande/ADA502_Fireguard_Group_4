@@ -1,8 +1,10 @@
 using Api.Controllers;
 using Api.Services;
+using AuthenticationServiceClient;
 using Grpc.Net.Client;
 using RabbitMQ.Client;
 using TestServiceClient;
+using UserServiceClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +22,32 @@ builder.Services.AddSingleton<IQueueService>(new QueueService(rabbitConnectionSt
 
 builder.Services
     .AddGrpcClient<TestService.TestServiceClient>(o =>
+    {
+        o.Address = new Uri(dbServiceUrl);
+    })
+    .ConfigurePrimaryHttpMessageHandler(() =>
+    {
+        var handler = new HttpClientHandler();
+        handler.ServerCertificateCustomValidationCallback = 
+            HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+
+        return handler;
+    });
+builder.Services
+    .AddGrpcClient<AuthenticationService.AuthenticationServiceClient>(o =>
+    {
+        o.Address = new Uri(dbServiceUrl);
+    })
+    .ConfigurePrimaryHttpMessageHandler(() =>
+    {
+        var handler = new HttpClientHandler();
+        handler.ServerCertificateCustomValidationCallback = 
+            HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+
+        return handler;
+    });
+builder.Services
+    .AddGrpcClient<DBUserService.DBUserServiceClient>(o =>
     {
         o.Address = new Uri(dbServiceUrl);
     })

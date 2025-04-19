@@ -12,17 +12,29 @@ public class DbUserService : UserServiceClient.DBUserService.DBUserServiceBase
     
     private readonly ApplicationDbContext _dbContext;
     
-    public override Task<CreateUserResponse> CreateUser(CreateUserRequest request, ServerCallContext context)
+    public override async Task<CreateUserResponse> CreateUser(CreateUserRequest request, ServerCallContext context)
     {
-        return base.CreateUser(request, context);
+        var user = new Entities.User
+        {
+            Username = request.Username,
+            Password = request.Password,
+        };
+        _dbContext.Add(user);
+        await _dbContext.SaveChangesAsync(context.CancellationToken);
+
+        return new CreateUserResponse
+        {
+            UserId = user.Id
+        };
+
     }
 
     public override Task<GetUserResponse?> GetUser(GetUserRequest request, ServerCallContext context)
     {
         var user = _dbContext.UserDataTable.Find(request.UserId);
-        var userResponse = user is null ? null : new GetUserResponse()
+        var userResponse = user is null ? null : new GetUserResponse
         {
-            User = new User()
+            User = new User 
             {
                 Username = user.Username,
                 UserId = user.Id

@@ -43,5 +43,6 @@ using (var scope = app.Services.CreateScope())
 
 app.MapGrpcService<TestService>().AllowAnonymous();
 app.MapGrpcService<DbUserService>().AllowAnonymous();
+app.MapGrpcService<AuthenticationService>().AllowAnonymous();
 
 app.Run();

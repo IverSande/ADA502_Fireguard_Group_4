@@ -8,8 +8,7 @@ namespace Api.Controllers;
 [Route("api/firerisk")]
 public class FireriskController : Controller
 {
-    private readonly TestService.TestServiceClient _testServiceClient;
-
+    private readonly TestService.TestServiceClient _testServiceClient; 
     public FireriskController(TestService.TestServiceClient testServiceClient)
     {
             _testServiceClient = testServiceClient;

@@ -1,7 +1,7 @@
 using Grpc.Core;
 using TestServiceClient;
 
-namespace Database.TestService;
+namespace Database.GRPCServices;
 
 public class TestService : TestServiceClient.TestService.TestServiceBase
 {

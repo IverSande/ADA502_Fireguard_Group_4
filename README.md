@@ -26,22 +26,15 @@ Flow for sending events on datapoll
 ![image](https://github.com/user-attachments/assets/bd051f39-c079-48da-a6de-ddca196d8f7a) <br>
 
 
-# In the pipeline
-Rabbit MQ will be used as a message broker to send messages from the api project that will be picked up directly from the database service without them <br>
-needing to be coupled or know of eachother, just have a contract that they use to parse the data from the queue
-
-
-
-
 
 # Quick start
 
 To get started <br>
 
-Generate the devcert using the devcert script, this is to utilize https locally (if you dont have any other localhost devcerts on your machine it needs to run a couple of times or you can change the array pointing in the script) <br>
-Move the Cert into the folder specified in the docker compose <br>
+Convert the env.txt file into a .env file <br>
 Run the docker compose, this will spin up all services and a full end to end test can be done <br>
+Use the postman collection to test endpoints. <br>
+Create user creates a user with username and email and will return an ID, this is needed for further use <br>
+Create Authentication token is used to generate a token that will last 30 minutes and allows for api calls <br>
+Subscribe to event location takes a userID and a location and creates an instance in the database that will be used to notify when a certain firerisk threshold is reached at that location <br>
 
-The database project seeds the database with some mockdata <br>
-
-To test go to https://localhost:5272/api/firerisk/{id} (the seeder seeds 4 values so 1-4 should give data back) <br>

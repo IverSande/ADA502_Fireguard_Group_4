@@ -41,4 +41,26 @@ public class AuthenticationService : AuthenticationServiceClient.AuthenticationS
         }
         
     }
+
+    public override async Task<ValidateAccessTokenResponse> ValidateAccessToken(ValidateAccessTokenRequest request, ServerCallContext context)
+    {
+        try
+        {
+            var token = await _dbContext.AccessTokenDataTable.FirstAsync(a => a.Token == request.AccessToken);
+            if (token.Expires < DateTimeOffset.Now)
+                throw new Exception("Access token expired");
+            return new ValidateAccessTokenResponse()
+            {
+                IsValid = true
+            };
+        }
+        catch
+        {
+            return new ValidateAccessTokenResponse()
+            {
+                IsValid = false 
+            };
+            
+        }
+    }
 }

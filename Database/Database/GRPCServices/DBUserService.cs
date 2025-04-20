@@ -18,6 +18,7 @@ public class DbUserService : UserServiceClient.DBUserService.DBUserServiceBase
         {
             Username = request.Username,
             Password = request.Password,
+            Email = request.Email,
         };
         _dbContext.Add(user);
         await _dbContext.SaveChangesAsync(context.CancellationToken);
@@ -37,7 +38,8 @@ public class DbUserService : UserServiceClient.DBUserService.DBUserServiceBase
             User = new User 
             {
                 Username = user.Username,
-                UserId = user.Id
+                UserId = user.Id,
+                Email = user.Email
             }
         };
         return Task.FromResult(userResponse) ?? throw new RpcException(new Status(StatusCode.NotFound, "User does not exist"));

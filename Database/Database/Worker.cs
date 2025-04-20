@@ -100,18 +100,25 @@ public class Worker : BackgroundService
 
             var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
             var eventAndUser = JsonSerializer.Deserialize<EventAndUser>(body);
+            
+            var targetEvent =
+                dbContext.EventDataTable.FirstOrDefault(a => a.EventLocation == eventAndUser.SubscriptionLocation);
 
-            var newEvent = new Event
+            if (targetEvent is null)
             {
-                EventLocation = eventAndUser.SubscriptionLocation,
-            };
-            dbContext.EventDataTable.Add(newEvent);
+                targetEvent = new Event
+                {
+                    EventLocation = eventAndUser.SubscriptionLocation,
+                };
+                dbContext.EventDataTable.Add(targetEvent);
+                
+            }
 
             await dbContext.SaveChangesAsync(stoppingToken);
 
             dbContext.UserEventDataTable.Add(new UserEvent
             {
-                EventId = newEvent.Id,
+                EventId = targetEvent.Id,
                 UserId = eventAndUser.UserId
             });
         }

@@ -20,7 +20,8 @@ public class UserController : Controller
         var response = await _userService.CreateUserAsync(new CreateUserRequest
         {
             Username = user.Username,
-            Password = user.Password
+            Password = user.Password,
+            Email = user.Email
         });
         
         

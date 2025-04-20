@@ -3,6 +3,7 @@ option csharp_namespace = "AuthenticationServiceClient";
 
 service AuthenticationService {
   rpc CreateAccessToken (CreateAccessTokenRequest) returns (CreateAccessTokenResponse) {}
+  rpc ValidateAccessToken (ValidateAccessTokenRequest) returns (ValidateAccessTokenResponse) {}
 }
 
 message CreateAccessTokenRequest {
@@ -12,4 +13,11 @@ message CreateAccessTokenRequest {
 
 message CreateAccessTokenResponse {
   string access_token = 1;
+}
+
+message ValidateAccessTokenRequest {
+  string access_token = 1;
+}
+message ValidateAccessTokenResponse{
+  bool is_valid = 1;
 }

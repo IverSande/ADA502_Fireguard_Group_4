@@ -40,7 +40,7 @@ public class QueueService : IQueueService
         props.ContentType = "text/plain";
         props.DeliveryMode = DeliveryModes.Persistent;
         props.Headers = new Dictionary<string, object>()!;
-        props.Headers.Add("type", message.GetType().FullName);
+        props.Headers.Add("type", "event");
         
         await channel.BasicPublishAsync(exchange : exchangeName, routingKey: routingKey, false, basicProperties: props, body: messageBodyBytes);
     }

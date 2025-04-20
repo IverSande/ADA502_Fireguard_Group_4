@@ -33,5 +33,8 @@
         </PackageReference>
         <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Migrations\" />
+    </ItemGroup>
 
 </Project>

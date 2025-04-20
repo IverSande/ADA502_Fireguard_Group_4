@@ -21,7 +21,7 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new EventDataConfiguration());
         base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfiguration(new EventDataConfiguration());
     }
 }

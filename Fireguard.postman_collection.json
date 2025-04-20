@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "0a801616-7d48-4172-b2ef-2d094198dcda",
+		"name": "Fireguard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37813779"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Username\": \"A new username\",\r\n    \"Password\": \"secret\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5272/api/user/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5272",
+					"path": [
+						"api",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create authentication token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserId\": \"10\",\r\n    \"Password\": \"secret\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5272/api/authentication/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5272",
+					"path": [
+						"api",
+						"authentication",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscribe to event location",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "01965344-18d2-7b52-81e1-b7cff1e3c2e2",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "accessToken",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserId\": \"6\",\r\n    \"SubscriptionLocation\": \"Bergen\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5272/api/subscribe",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5272",
+					"path": [
+						"api",
+						"subscribe"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

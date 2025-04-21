@@ -1,4 +1,4 @@
-name: Fireguard
+#name: Fireguard
 services: 
   api:
     container_name: "api-service"

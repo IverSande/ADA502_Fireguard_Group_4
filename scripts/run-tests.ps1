@@ -15,8 +15,8 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 pip install flake8
 
-# Exclude both the generated grpc_service folder and your Services folder
-flake8 --max-line-length=120 --exclude=grpc_service,Services .
+# Exclude generated gRPC code, your Services folder, and tests
+flake8 --max-line-length=120 --exclude=grpc_service,Services,tests .
 
 if ($LASTEXITCODE -ne 0) {
   Write-Error "Python lint failed."

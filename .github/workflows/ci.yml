@@ -19,7 +19,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build images
-        run: docker-compose -f compose.yaml build --pull
+        run: docker compose -f compose.yaml build --pull
   test:
     name: Build, Lint & Test
     runs-on: windows-latest

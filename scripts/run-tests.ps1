@@ -13,6 +13,7 @@ Write-Host "▶ Installing Python deps and linting..."
 Set-Location .\Python
 python -m pip install --upgrade pip
 pip install -r requirements.txt
+pip install httpx
 pip install flake8
 
 # Exclude generated gRPC code, your Services folder, and tests

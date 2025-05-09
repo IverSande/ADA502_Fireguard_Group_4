@@ -20,7 +20,7 @@ The project is primarily to manage the postgres database and receive calls and r
 The project also contains some logic to setup local testing with seeding of the database
 
 The structure of the DB<br>
-<img width="772" alt="image" src="https://github.com/user-attachments/assets/9e81b259-ca86-4a1d-853f-7f85bde95520" /><br>
+![image](https://github.com/user-attachments/assets/147bc658-ea9e-4b76-84d8-c81ea098164e)<br>
 
 Flow for creating a userevent
 ![image](https://github.com/user-attachments/assets/b508cd73-a565-4a31-b54d-7b6d8ba8005e) <br>

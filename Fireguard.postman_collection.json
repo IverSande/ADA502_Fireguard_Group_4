@@ -1,11 +1,93 @@
 {
 	"info": {
-		"_postman_id": "0a801616-7d48-4172-b2ef-2d094198dcda",
+		"_postman_id": "8a7516c9-90b2-4b9b-81cc-425932a7f409",
 		"name": "Fireguard",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37813779"
+		"_exporter_id": "25420986",
+		"_collection_link": "https://planetary-crater-566399.postman.co/workspace/New-Team-Workspace~68b06fca-ba59-41a6-ab0f-d268d7d14986/collection/25420986-8a7516c9-90b2-4b9b-81cc-425932a7f409?action=share&source=collection_link&creator=25420986"
 	},
 	"item": [
+		{
+			"name": "Python",
+			"item": [
+				{
+					"name": "Coordinates",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/coordinates/bergen",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"coordinates",
+								"bergen"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Average-ttf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/average-ttf/bergen",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"average-ttf",
+								"bergen"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "Create User",
 			"request": {

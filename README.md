@@ -1,7 +1,7 @@
 # ADA502_Fireguard_Group_4
 
 # Project Structure
-![image](https://github.com/user-attachments/assets/42c0afe2-7434-40c5-97c0-7dc7eaeeb512)<br>
+![image](https://github.com/user-attachments/assets/7be77098-51df-4219-a6b5-de89b630eaea)<br>
 This project is comprised of 3 primary microservices, 
 # An api project
 This project is an Asp Dot Net Core project running on Dotnet 9. <br>
@@ -23,7 +23,7 @@ The structure of the DB<br>
 ![image](https://github.com/user-attachments/assets/147bc658-ea9e-4b76-84d8-c81ea098164e)<br>
 
 Flow for creating a userevent
-![image](https://github.com/user-attachments/assets/b508cd73-a565-4a31-b54d-7b6d8ba8005e) <br>
+![image](https://github.com/user-attachments/assets/7f801edd-5278-4e73-8666-2103ba7bceb5)<br>
 
 
 
